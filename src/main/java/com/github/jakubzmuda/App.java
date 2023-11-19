@@ -1,5 +1,6 @@
 package com.github.jakubzmuda;
 
+import com.github.jakubzmuda.powerunit.PowerUnit;
 import com.pi4j.Pi4J;
 import com.pi4j.context.Context;
 import com.pi4j.util.Console;
@@ -10,6 +11,10 @@ public class App {
 
         final var console = new Console();
         var pi4j = Pi4J.newAutoContext();
+
+        PowerUnit powerUnit = new PowerUnit(pi4j);
+
+//        powerUnit.requestPower();
 
         handleInterruptSignal(pi4j);
         keepTheAppRunning();
